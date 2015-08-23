@@ -1,4 +1,4 @@
-package org.wheeler.robotics;
+package org.wheeler.robotics.MMUXController;
 
 /**
  * Created by lucien on 6/19/15.

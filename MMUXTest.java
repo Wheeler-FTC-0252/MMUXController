@@ -1,8 +1,8 @@
-package org.wheeler.robotics;
+package org.wheeler.robotics.MMUXController;
 
 import com.qualcomm.ftccommon.DbgLog;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import org.wheeler.robotics.MMUX;
+import org.wheeler.robotics.MMUXController.MMUX;
 //import com.qualcomm.robotcore.hardware.Gamepad;
 //import com.qualcomm.robotcore.eventloop.EventLoopManager;
 //import com.qualcomm.robotcore.robocol.RobocolDatagramSocket;
