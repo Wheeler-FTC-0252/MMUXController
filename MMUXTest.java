@@ -21,6 +21,11 @@ public class MMUXTest extends OpMode {
     }
 
     @Override
+    public void init() {
+
+    }
+
+    @Override
     public void start() {
         //telemetry.addData("1 Start", "Luc's App Boldly Starts");
         DbgLog.msg("Luc's App Boldly Starts");
