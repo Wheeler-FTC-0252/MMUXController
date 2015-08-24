@@ -81,11 +81,15 @@ public class MMUX {
     }
 
     public synchronized void write(int memAddress, int memLength, byte[] byteValues) {
-        while (legacyModule.isI2cPortReady(portNumber)==false) {}
-        legacyModule.enableNxtI2cWriteMode(portNumber, i2cAddress, memAddress, memLength);
+        while (!legacyModule.isI2cPortReady(portNumber)) {}
+        byte[] writeCache = legacyModule.getI2cWriteCache(portNumber);
         Lock lock = legacyModule.getI2cWriteCacheLock(portNumber);
-        legacyModule.getI2cWriteCache(portNumber);
+        legacyModule.enableNxtI2cWriteMode(portNumber, i2cAddress, memAddress, memLength);
+        lock.lock();
+        writeCache=byteValues;
+        lock.unlock();
     }
+    // TODO: Check with the same forum post about writing. I'm not sure how the part in between the lock and unlock is supposed to work
 
     public synchronized byte[] read (int memAddress, int memLength) {
         Lock readLock = legacyModule.getI2cReadCacheLock(portNumber);
